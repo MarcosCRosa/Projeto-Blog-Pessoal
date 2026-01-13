@@ -20,7 +20,7 @@ function Home() {
                  <button style={{border:"1rem",borderRadius:"5px", padding:"0.5rem"}}>Nova Postagem</button>
                 </article>
                 <figure>
-                <img src="https://i.imgur.com/fyfri1v.png" alt="" style={{width:"100%"}}/>
+                <img src="https://i.imgur.com/fyfri1v.png" alt="" style={{width:"65%"}}/>
                 </figure>
             </section>
         </main>
