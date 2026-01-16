@@ -1,13 +1,27 @@
 import Home from './pages/home/Home'
 import Navbar from './components/navbar/Navbar'
 import Footer from './components/footer/Footer'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import './App.css'
+import Login from './pages/login/Login'
+import Cadastro from './pages/cadastro/Cadastro'
+import { AuthProvider } from './contexts/AuthContext'
 function App() {
   return (
     <>
+    <AuthProvider>
+    <BrowserRouter>
     <Navbar/>
-    <Home/>
+    <div className='min-h-[80vh]'>
+    <Routes>
+    <Route path="/" element={<Login/>}/>
+    <Route path="/home" element={<Home/>}/>
+    <Route path="/cadastro" element={<Cadastro/>}/>
+    </Routes>
+    </div>
     <Footer/>
+    </BrowserRouter>
+    </AuthProvider>
     </>
   )
 }
