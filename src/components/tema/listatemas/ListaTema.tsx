@@ -15,7 +15,6 @@ function ListaTemas() {
 
     useEffect(()=>{
         if(token === ""){
-            alert('voce precisa estar logado!')
             navigate('/')
         }
     },[token])

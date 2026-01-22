@@ -33,7 +33,6 @@ import { ClipLoader } from "react-spinners"
 
     useEffect(() => {
         if (token === '') {
-            alert('Você precisa estar logado')
             navigate('/')
         }
     }, [token])
