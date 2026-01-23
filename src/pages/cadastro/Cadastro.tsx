@@ -1,4 +1,4 @@
-import { useEffect, useState, type ChangeEvent, type FormEvent } from 'react'
+import { useState, type ChangeEvent, type FormEvent } from 'react'
 import { useNavigate } from 'react-router-dom'
 import type Usuario from '../../models/Usuario'
 import { cadastrarUsuario } from '../../services/Service'
@@ -17,14 +17,9 @@ function Cadastro() {
         senha: '',
         foto: ''
     })
-    useEffect(()=>{
-        if (usuario.id !== 0){
-            retornar()
-        }
-    },[usuario])
 
     function retornar(){
-        navigate('/login')
+        navigate('/')
     }
     
     function atualizarEstado(e: ChangeEvent<HTMLInputElement>){
@@ -47,15 +42,17 @@ function Cadastro() {
             try{
                 await cadastrarUsuario(`/usuarios/cadastrar`,usuario,setUsuario)
                 alert('Usuário cadastrado com sucesso!')
+                setIsLoading(false)
+                retornar()
             } catch(error){
                 alert('Erro ao cadastrar usuário!')
+                setIsLoading(false)
             }
         }else{
             alert('Dados do usuário inconsistentes! Verifique as informações do cadastro')
             setUsuario({...usuario,senha:''})
             setConfirmaSenha('')
         }
-        setIsLoading(false)
     }
 
   return (
